@@ -9,3 +9,10 @@ class QuizQuestion(models.Model):
     op4 = models.CharField(max_length=60)
     def __str__(self):
         return self.question[0:50]
+
+class Answer(models.Model):
+    questnId = models.ForeignKey(QuizQuestion, on_delete=models.CASCADE)
+    answer = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.answer
